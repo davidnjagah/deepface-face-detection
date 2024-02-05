@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "face-characters-detection"
+version = "0.1.0"
+description = "A simple Face detection API made with Python, Flask, and Deepface capable of detecting emotion, race, gender, and ethnicity"
+authors = ["Vetrichelvan"]
+readme = "README.md"
+packages = [{ include = "face_characters_detection" }]
+
+[tool.poetry.dependencies]
+python = "3.9.16"
+tensorflow-macos = "^2.12.0"
+tensorflow-metal = "^0.8.0"
+fastapi = "^0.95.1"
+flask = "^2.2.3"
+pillow = "^9.5.0"
+opencv-contrib-python = "^4.7.0.72"
+pandas = "^2.0.0"
+tqdm = "^4.65.0"
+gdown = "^4.7.1"
+pydantic = "^1.10.7"
+python-dotenv = "^1.0.0"
+flask-restx = "^1.1.0"
+flask-cors = "^3.0.10"
+uvicorn = "^0.21.1"
+python-multipart = "^0.0.6"
+
+
+[tool.poetry.group.dev.dependencies]
+black = { extras = ["d"], version = "^23.3.0" }
+isort = "^5.12.0"
+pre-commit = "^3.2.2"
+ruff = "^0.0.261"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+known_third_party = ["faag_cli"]
+
+[tool.ruff]
+src = ["."]
+target-version = "py311"
+fix = true
+show-source = true
+line-length = 120
+select = ["E", "F", "F401", "N801", "N802", "N803", "N805", "N806"]
+
+[tool.ruff.flake8-quotes]
+inline-quotes = "double"
+multiline-quotes = "double"
+docstring-quotes = "double"
+
+
+[tool.ruff.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.flake8-type-checking]
+strict = true
+
+[tool.ruff.isort]
+combine-as-imports = true
+known-third-party = ["faag_cli"]
+
+[tool.mypy]
+strict = true
